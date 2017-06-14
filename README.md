@@ -180,7 +180,9 @@ window.geofence.addOrUpdate({
         openAppOnClick: Boolean,//is main app activity should be opened after clicking on notification
         vibration:      [Integer], //Optional vibration pattern - see description
         data:           Object  //Custom object associated with notification
-    }
+    },
+    url:            String, // URL to notify
+    auth:           String  // HTTP Auth header
 }).then(function () {
     console.log('Geofence successfully added');
 }, function (error) {
