@@ -393,6 +393,16 @@ class GeoNotificationManager : NSObject, CLLocationManagerDelegate {
 
             if geoNotification["notification"].isExists() {
                 notifyAbout(geoNotification)
+                }
+            
+            if (geoNotification["url"]).isExists() {
+                let url = URL(string: geoNotification["url"].stringValue)
+                var req = URLRequest(url: url!)
+                
+                req.httpMethod = "POST"
+                req.setValue(geoNotification["auth"].stringValue, forHTTPHeaderField: "Authorization")
+                
+                NSURLConnection(request: req, delegate: self)
             }
 
             NotificationCenter.default.post(name: Notification.Name(rawValue: "handleTransition"), object: geoNotification.rawString(String.Encoding.utf8.rawValue, options: []))

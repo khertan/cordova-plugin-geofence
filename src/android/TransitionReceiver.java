@@ -49,28 +49,6 @@ public class TransitionReceiver extends BroadcastReceiver {
                     } else {
                         Log.println(Log.DEBUG, GeofencePlugin.TAG,  "Reponse KO");
                     }
-/*
-                    DefaultHttpClient httpClient = new DefaultHttpClient();
-                    HttpPost request = new HttpPost(geoNotification.url);
-
-                    StringEntity se = new StringEntity(geoNotification.toJson());
-                    request.setEntity(se);
-                    request.setHeader("Accept", "application/json");
-                    request.setHeader("Content-type", "application/json");
-                    
-                    for (Map.Entry<String, String> entry : geoNotification.headers.entrySet()) {
-                        request.setHeader(entry.getKey(), entry.getValue());
-                    }
-
-                    HttpResponse response = httpClient.execute(request);
-                    
-                    Log.println(Log.DEBUG, GeofencePlugin.TAG,  "Response received"+ response.getStatusLine());
-                    if (response.getStatusLine().getStatusCode() == 200) {
-                        Log.println(Log.DEBUG, GeofencePlugin.TAG,  "Reponse OK");
-                    } else {
-                        Log.println(Log.DEBUG, GeofencePlugin.TAG,  "Reponse KO");
-                    }
-                    */
                 }
             } catch (Throwable e) {
                 Log.println(Log.ERROR, GeofencePlugin.TAG, "Exception posting geofence: " + e);    
